@@ -3,227 +3,2060 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Internet Access Instructions</title>
+    <title>VisualTech Solutions | AV, ICT & ELV Systems Integration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Print-friendly styling */
-        @media print {
-            body {
-                font-family: Arial, sans-serif;
-                line-height: 1.4;
-                color: #000;
-                background: #fff;
-                margin: 0;
-                padding: 0;
+        :root {
+            --primary: #0056b3;
+            --secondary: #333333;
+            --accent: #ff6600;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --tech-blue: #1a73e8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--secondary);
+            line-height: 1.6;
+            background-color: #f5f7fa;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #004494;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background: #e55c00;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover:after, nav ul li a.active:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Page Content */
+        .page-content {
+            display: none;
+        }
+        
+        .page-content.active {
+            display: block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .hero-buttons {
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        /* Service Detail Pages */
+        .service-detail-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+            color: white;
+            text-align: center;
+            padding: 150px 0 80px;
+        }
+        
+        .service-detail-content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .service-feature {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .service-feature h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-feature h4 i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        /* Consultation Hero Section */
+        .consultation-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 180px 0 100px;
+        }
+        
+        .consultation-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .consultation-hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .consultation-hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-color: #ddd;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .service-content ul {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .service-content ul li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .service-content ul li:before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Audio-Visual Solutions Image */
+        .av-solution-img {
+            width: 100%;
+            height: 200px;
+            background: url('https://www.yealink.com/website-service/attachment/solution/other/20250318/20250318024052535305b.webp') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* GRMS Device Image */
+        .grms-device-img {
+            width: 100%;
+            height: 200px;
+            background: url('https://www.orbitatech.com/uploads/allimg/200706/1-200F6163502507.jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Consultation Services Section */
+        .consultation-services {
+            background: var(--light);
+        }
+        
+        .consultation-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-item {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-item h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-item h3 i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .service-item p {
+            margin-bottom: 15px;
+        }
+        
+        /* Custom Solution Form Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .solution-form-modal {
+            background: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal-overlay.active .solution-form-modal {
+            transform: translateY(0);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--secondary);
+        }
+        
+        .solution-form-modal h2 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .solution-form-modal .service-type {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.2);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        /* Dual Services Section */
+        .dual-services {
+            background: linear-gradient(to right, #f9f9f9, #f1f1f1);
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .service-column {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-column:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-column h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        
+        .service-column ul {
+            list-style: none;
+        }
+        
+        .service-column ul li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .service-column ul li:before {
+            content: "▸";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Custom Smart Systems Image */
+        .smart-systems-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .automation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 15px;
+            width: 80%;
+            height: 80%;
+        }
+        
+        .automation-item {
+            background: rgba(52, 152, 219, 0.2);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .automation-item:hover {
+            background: rgba(52, 152, 219, 0.4);
+            transform: scale(1.05);
+        }
+        
+        .automation-item i {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #3498db;
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--light);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .about-img:hover {
+            transform: scale(1.02);
+        }
+        
+        .about-img img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-align: center;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        /* Process Section */
+        .process-section {
+            background: linear-gradient(135deg, var(--primary), #003d82);
+            color: white;
+        }
+        
+        .process-section .section-title h2 {
+            color: white;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .process-step {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .process-step h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* Benefits Section */
+        .benefits-section {
+            background: var(--light);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-item {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-item i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-item h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* ELV Solutions Section */
+        .elv-solutions {
+            background: linear-gradient(135deg, var(--primary), #003d82);
+            color: white;
+        }
+        
+        .elv-solutions .section-title h2 {
+            color: white;
+        }
+        
+        .elv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .elv-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        
+        .elv-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .elv-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--light);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .contact-details {
+            margin: 25px 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+        }
+        
+        /* Consultation CTA Section */
+        .consultation-cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+        
+        .consultation-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .consultation-cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column p, .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scroll-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-to-top:hover {
+            background: #e55c00;
+            transform: translateY(-3px);
+        }
+        
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(0, 86, 179, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Animation Classes */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
             }
-            
-            .page-break {
-                page-break-before: always;
-            }
-            
-            .no-print {
-                display: none;
-            }
-            
-            a {
-                color: #000;
-                text-decoration: underline;
-            }
-            
-            .header, .footer {
-                text-align: center;
-                margin: 20px 0;
-            }
-            
-            .instructions {
-                margin: 20px 0;
-            }
-            
-            .step {
-                margin-bottom: 15px;
-                padding-left: 20px;
-            }
-            
-            .step-number {
-                font-weight: bold;
-            }
-            
-            .troubleshooting {
-                border: 1px solid #000;
-                padding: 15px;
-                margin: 20px 0;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
         
-        /* Screen styling */
-        @media screen {
-            body {
-                font-family: Arial, sans-serif;
-                line-height: 1.6;
-                color: #333;
-                background: #f5f5f5;
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 20px;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content, .services-container, .contact-container {
+                grid-template-columns: 1fr;
             }
             
-            .print-button {
-                background: #4a86e8;
-                color: white;
-                border: none;
-                padding: 10px 20px;
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 16px;
-                margin-bottom: 20px;
+            .hero-content h2, .consultation-hero-content h2 {
+                font-size: 2.5rem;
             }
             
-            .print-button:hover {
-                background: #3a76d8;
+            .section-title h2 {
+                font-size: 2.2rem;
             }
             
-            .instructions {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
                 background: white;
+                transition: all 0.3s ease;
+                z-index: 999;
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero-content h2, .consultation-hero-content h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero, .consultation-hero {
+                padding: 150px 0 80px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .services-grid, .consultation-services-grid, .benefits-grid, .elv-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .solution-form-modal {
                 padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                width: 95%;
             }
             
-            .step {
-                margin-bottom: 15px;
-                padding-left: 20px;
+            .hero-content h2, .consultation-hero-content h2 {
+                font-size: 1.8rem;
             }
             
-            .step-number {
-                font-weight: bold;
-                color: #4a86e8;
+            .hero-content p, .consultation-hero-content p {
+                font-size: 1rem;
             }
             
-            .troubleshooting {
-                border-left: 4px solid #e74c3c;
-                background: #f9f9f9;
-                padding: 15px;
-                margin: 20px 0;
+            .section-title h2 {
+                font-size: 1.6rem;
             }
             
-            .header {
-                text-align: center;
-                border-bottom: 2px solid #4a86e8;
-                padding-bottom: 10px;
+            .section-title p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .service-card, .service-item, .benefit-item, .elv-card {
+                padding: 20px;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 20px;
+            }
+            
+            .scroll-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .service-detail-content {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="no-print">
-        <button class="print-button" onclick="window.print()">Print Instructions</button>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
     </div>
-    
-    <div class="header">
-        <h1>Internet Access Instructions</h1>
-        <p>Follow these steps to connect to the internet</p>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Visual<span>Tech</span> Solutions</h1>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="consultation">Consultation</a></li>
+                    <li><a href="#services" class="nav-link" data-page="home">Services</a></li>
+                    <li><a href="#solutions" class="nav-link" data-page="home">Solutions</a></li>
+                    <li><a href="#elv" class="nav-link" data-page="home">ELV Systems</a></li>
+                    <li><a href="#about" class="nav-link" data-page="home">About</a></li>
+                    <li><a href="#contact" class="nav-link" data-page="home">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
     </div>
-    
-    <div class="instructions">
-        <h2>Wi-Fi Connection Setup</h2>
-        
-        <div class="step">
-            <span class="step-number">1.</span> Locate the Wi-Fi icon in the system tray (bottom-right corner on Windows, top-right corner on Mac).
-        </div>
-        
-        <div class="step">
-            <span class="step-number">2.</span> Click on the Wi-Fi icon to view available networks.
-        </div>
-        
-        <div class="step">
-            <span class="step-number">3.</span> Select the network named: <strong>[Your Network Name]</strong>
-        </div>
-        
-        <div class="step">
-            <span class="step-number">4.</span> When prompted, enter the password: <strong>[Your Password]</strong>
-        </div>
-        
-        <div class="step">
-            <span class="step-number">5.</span> Click "Connect" and wait for the connection to establish.
-        </div>
-        
-        <div class="step">
-            <span class="step-number">6.</span> Once connected, you should see "Connected" next to the network name.
-        </div>
-        
-        <div class="step">
-            <span class="step-number">7.</span> Open a web browser to test your connection.
-        </div>
-    </div>
-    
-    <div class="troubleshooting">
-        <h2>Troubleshooting Tips</h2>
-        
-        <div class="step">
-            <span class="step-number">•</span> If you can't see the network, make sure Wi-Fi is enabled on your device.
-        </div>
-        
-        <div class="step">
-            <span class="step-number">•</span> If the password doesn't work, check for correct capitalization and special characters.
-        </div>
-        
-        <div class="step">
-            <span class="step-number">•</span> Try moving closer to the router if the signal is weak.
-        </div>
-        
-        <div class="step">
-            <span class="step-number">•</span> Restart your device if connection problems persist.
-        </div>
-        
-        <div class="step">
-            <span class="step-number">•</span> Contact IT support at: <strong>[Support Phone/Email]</strong>
-        </div>
-    </div>
-    
-    <div class="page-break"></div>
-    
-    <div class="instructions">
-        <h2>Ethernet Connection Setup</h2>
-        
-        <div class="step">
-            <span class="step-number">1.</span> Connect one end of the Ethernet cable to your computer.
-        </div>
-        
-        <div class="step">
-            <span class="step-number">2.</span> Connect the other end to an available Ethernet port on the wall or router.
-        </div>
-        
-        <div class="step">
-            <span class="step-number">3.</span> Wait for the connection to be established (usually indicated by a light on the Ethernet port).
-        </div>
-        
-        <div class="step">
-            <span class="step-number">4.</span> Open a web browser to test your connection.
-        </div>
-    </div>
-    
-    <div class="instructions">
-        <h2>Important Notes</h2>
-        
-        <div class="step">
-            <span class="step-number">•</span> Do not share the Wi-Fi password with unauthorized users.
-        </div>
-        
-        <div class="step">
-            <span class="step-number">•</span> For security reasons, the password may be changed periodically.
-        </div>
-        
-        <div class="step">
-            <span class="step-number">•</span> Report any suspicious network activity immediately.
-        </div>
-        
-        <div class="step">
-            <span class="step-number">•</span> These instructions are for [Location/Building Name] only.
+
+    <!-- Custom Solution Form Modal -->
+    <div class="modal-overlay" id="solutionFormModal">
+        <div class="solution-form-modal">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h2>Request a Custom Solution</h2>
+            <p class="service-type" id="modalServiceType">Audio-Visual Solutions</p>
+            <p>Please share your contact details and requirements, and our team will get back to you with a tailored solution.</p>
+            
+            <form id="customSolutionForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company/Organization</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="serviceType">Service Type *</label>
+                    <select id="serviceType" name="serviceType" required>
+                        <option value="av">Audio-Visual Solutions</option>
+                        <option value="ict">ICT & Networking</option>
+                        <option value="grms">GRMS & Security</option>
+                        <option value="elv">ELV Systems</option>
+                        <option value="multiple">Multiple Services</option>
+                        <option value="consultation">Consultation & Design</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="projectScope">Project Scope *</label>
+                    <select id="projectScope" name="projectScope" required>
+                        <option value="">Select project scope</option>
+                        <option value="new-installation">New Installation</option>
+                        <option value="upgrade">System Upgrade</option>
+                        <option value="integration">System Integration</option>
+                        <option value="maintenance">Maintenance & Support</option>
+                        <option value="consultation">Consultation & Design</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="budgetRange">Budget Range</label>
+                    <select id="budgetRange" name="budgetRange">
+                        <option value="">Select budget range</option>
+                        <option value="under-10k">Under $10,000</option>
+                        <option value="10k-50k">$10,000 - $50,000</option>
+                        <option value="50k-100k">$50,000 - $100,000</option>
+                        <option value="100k-500k">$100,000 - $500,000</option>
+                        <option value="over-500k">Over $500,000</option>
+                        <option value="not-sure">Not Sure / Need Guidance</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="projectDetails">Project Details & Requirements *</label>
+                    <textarea id="projectDetails" name="projectDetails" required placeholder="Please describe your project requirements, timeline, challenges, and any specific features you need..."></textarea>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="additionalInfo">Additional Information</label>
+                    <textarea id="additionalInfo" name="additionalInfo" placeholder="Any other information that would help us understand your needs better..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-accent" style="width: 100%;">Submit Request</button>
+            </form>
         </div>
     </div>
-    
-    <div class="footer">
-        <p>For additional assistance, contact: [IT Department Contact Information]</p>
-        <p>Document version: 1.0 | Last updated: [Date]</p>
+
+    <!-- Home Page Content -->
+    <div id="home-page" class="page-content active">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
+                <h2>Innovation. Integration. Insight.</h2>
+                <p>Comprehensive AV, ICT & ELV solutions for modern businesses and smart environments</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn">Our Services</a>
+                    <a href="#contact" class="btn btn-accent">Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Core Services</h2>
+                    <p>Comprehensive technology solutions for modern businesses and environments</p>
+                </div>
+                <div class="services-grid">
+                    <!-- AV Services -->
+                    <div class="service-card">
+                        <div class="av-solution-img"></div>
+                        <div class="service-content">
+                            <h3>Audio-Visual Solutions</h3>
+                            <p>We create engaging and dynamic environments through state-of-the-art audio-visual technology.</p>
+                            <ul>
+                                <li>Corporate Conference Rooms</li>
+                                <li>Digital Signage & Video Walls</li>
+                                <li>Unified Communications</li>
+                                <li>Live Events & Broadcasting</li>
+                            </ul>
+                            <a href="#" class="btn nav-link" data-page="av-solutions">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- ICT Services -->
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                        <div class="service-content">
+                            <h3>ICT & Networking</h3>
+                            <p>We build the robust digital backbone that powers modern enterprises.</p>
+                            <ul>
+                                <li>Structured Cabling Systems</li>
+                                <li>Wireless Network Solutions</li>
+                                <li>IP Telephony & VoIP</li>
+                                <li>Network Security</li>
+                            </ul>
+                            <a href="#" class="btn nav-link" data-page="ict-solutions">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- GRMS Services -->
+                    <div class="service-card">
+                        <div class="grms-device-img"></div>
+                        <div class="service-content">
+                            <h3>GRMS & Security</h3>
+                            <p>We enhance guest experiences and security through intelligent room management systems.</p>
+                            <ul>
+                                <li>Guest Room Management Systems</li>
+                                <li>Integrated Security Solutions</li>
+                                <li>Access Control & CCTV</li>
+                                <li>Energy Management Systems</li>
+                            </ul>
+                            <a href="#" class="btn nav-link" data-page="grms-solutions">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional sections remain the same as before -->
+        <!-- Dual Services Section -->
+        <section class="dual-services" id="solutions">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Complete ELV-ICT Solutions</h2>
+                    <p>Integrated systems for modern infrastructure and smart environments</p>
+                </div>
+                <div class="services-container">
+                    <div class="service-column">
+                        <h3>Interactive IPTV & Digital Solutions</h3>
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); height: 200px; margin-bottom: 20px; border-radius: 4px;"></div>
+                        <ul>
+                            <li>Interactive IPTV Systems</li>
+                            <li>Digital Signage Solutions</li>
+                            <li>Network Infrastructure</li>
+                            <li>Telephony Solutions</li>
+                            <li>CCTV Surveillance</li>
+                            <li>Access Control Systems</li>
+                        </ul>
+                    </div>
+                    <div class="service-column">
+                        <h3>Smart Systems & Automation</h3>
+                        <div class="smart-systems-img">
+                            <div class="automation-grid">
+                                <div class="automation-item">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Lighting</span>
+                                </div>
+                                <div class="automation-item">
+                                    <i class="fas fa-thermometer-half"></i>
+                                    <span>Climate</span>
+                                </div>
+                                <div class="automation-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Security</span>
+                                </div>
+                                <div class="automation-item">
+                                    <i class="fas fa-door-closed"></i>
+                                    <span>Access</span>
+                                </div>
+                                <div class="automation-item">
+                                    <i class="fas fa-plug"></i>
+                                    <span>Energy</span>
+                                </div>
+                                <div class="automation-item">
+                                    <i class="fas fa-tv"></i>
+                                    <span>Entertainment</span>
+                                </div>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>Fire Evacuation Systems</li>
+                            <li>Audio-Visual Solutions</li>
+                            <li>Home Automation</li>
+                            <li>Building Management Systems (BMS)</li>
+                            <li>Guest Room Management Systems (GRMS)</li>
+                            <li>Integrated Control Systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ELV Solutions Section -->
+        <section class="elv-solutions" id="elv">
+            <div class="container">
+                <div class="section-title">
+                    <h2>ELV Systems Integration</h2>
+                    <p>Comprehensive Extra Low Voltage solutions for modern infrastructure</p>
+                </div>
+                <div class="elv-grid">
+                    <div class="elv-card">
+                        <i class="fas fa-tv"></i>
+                        <h3>Interactive IPTV</h3>
+                        <p>Advanced television systems for hospitality and corporate environments</p>
+                    </div>
+                    <div class="elv-card">
+                        <i class="fas fa-desktop"></i>
+                        <h3>Digital Signage</h3>
+                        <p>Dynamic display solutions for information and advertising</p>
+                    </div>
+                    <div class="elv-card">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Network Solutions</h3>
+                        <p>Robust connectivity infrastructure for seamless operations</p>
+                    </div>
+                    <div class="elv-card">
+                        <i class="fas fa-phone-alt"></i>
+                        <h3>Telephony Solutions</h3>
+                        <p>Advanced communication systems for businesses</p>
+                    </div>
+                    <div class="elv-card">
+                        <i class="fas fa-video"></i>
+                        <h3>CCTV & Access Control</h3>
+                        <p>Comprehensive security and monitoring solutions</p>
+                    </div>
+                    <div class="elv-card">
+                        <i class="fas fa-fire-extinguisher"></i>
+                        <h3>Fire Evacuation</h3>
+                        <p>Life safety systems for emergency situations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About VisualTech Solutions</h2>
+                    <p>Your trusted partner for integrated technology solutions</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Precise Solutions, Lasting Success</h3>
+                        <p>VisualTech Solutions is a premier technology integrator specializing in Audio-Visual, ICT, and ELV systems for modern businesses and smart environments.</p>
+                        <p>With expertise spanning interactive IPTV, network infrastructure, security systems, and building automation, we provide end-to-end solutions that enhance operational efficiency and user experience.</p>
+                        <p>Our mission is to deliver cutting-edge, scalable, and reliable technology solutions that empower organizations to achieve their strategic goals.</p>
+                        <div class="tagline">Precise Solutions, Lasting Success.</div>
+                        <a href="#contact" class="btn">Get in Touch</a>
+                    </div>
+                    <div class="about-img">
+                        <!-- Company logo placeholder -->
+                        <div style="background: linear-gradient(135deg, var(--primary), var(--accent)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">
+                            VisualTech Solutions
+                        </div>
+                        <p style="margin-top: 15px; text-align: center;">Innovation. Integration. Insight.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Transform Your Technology Infrastructure?</h2>
+                <p>Contact us today for a free consultation and let's discuss how our integrated AV, ICT & ELV solutions can benefit your organization.</p>
+                <a href="#" class="btn btn-accent nav-link" data-page="consultation">Get a Free Consultation</a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch with our team for professional technology solutions</p>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <p>We're here to help you with all your AV, ICT and ELV system needs. Contact us today for a consultation.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Location</h4>
+                                    <p>Kampala, Uganda<br>Buziga</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>
+                                    <h4>Phone Numbers</h4>
+                                    <p>+256 772 494680<br>+256 752 494680</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email Address</h4>
+                                    <p>sti_voh@yahoo.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Interested In</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="av">Audio-Visual Solutions</option>
+                                    <option value="ict">ICT & Networking</option>
+                                    <option value="grms">GRMS & Security</option>
+                                    <option value="elv">ELV Systems</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-accent" style="width: 100%;">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <!-- Audio-Visual Solutions Detail Page -->
+    <div id="av-solutions-page" class="page-content">
+        <section class="service-detail-hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.yealink.com/website-service/attachment/solution/other/20250318/20250318024052535305b.webp') no-repeat center center/cover;">
+            <div class="container">
+                <h1>Audio-Visual Solutions</h1>
+                <p>Transform your communication and presentation experiences with cutting-edge AV technology</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="service-detail-content">
+                    <h2>Comprehensive Audio-Visual Integration</h2>
+                    <p>At VisualTech Solutions, we design and implement state-of-the-art audio-visual systems that transform how organizations communicate, collaborate, and present information. Our solutions are tailored to meet the specific needs of each client, ensuring optimal performance and user experience.</p>
+                    
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <h4><i class="fas fa-video"></i> Corporate Conference Rooms</h4>
+                            <p>Advanced video conferencing systems with crystal-clear audio and high-definition video for seamless remote collaboration.</p>
+                            <ul>
+                                <li>4K video conferencing systems</li>
+                                <li>Acoustic treatment for optimal sound</li>
+                                <li>Wireless presentation solutions</li>
+                                <li>Integrated control systems</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <h4><i class="fas fa-desktop"></i> Digital Signage & Video Walls</h4>
+                            <p>Dynamic display solutions that capture attention and deliver impactful messages in corporate, retail, and public spaces.</p>
+                            <ul>
+                                <li>LED and LCD video walls</li>
+                                <li>Interactive digital signage</li>
+                                <li>Content management systems</li>
+                                <li>Scheduled content delivery</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <h4><i class="fas fa-broadcast-tower"></i> Unified Communications</h4>
+                            <p>Seamlessly integrate various communication platforms to enhance productivity and collaboration across your organization.</p>
+                            <ul>
+                                <li>Voice and video integration</li>
+                                <li>Instant messaging solutions</li>
+                                <li>Presence and availability management</li>
+                                <li>Mobile integration</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <h4><i class="fas fa-film"></i> Live Events & Broadcasting</h4>
+                            <p>Professional AV solutions for live events, presentations, and broadcasting with reliable performance and stunning visual impact.</p>
+                            <ul>
+                                <li>Live streaming solutions</li>
+                                <li>Multi-camera setups</li>
+                                <li>Professional audio reinforcement</li>
+                                <li>Event recording and archiving</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3>Our AV Technology Partners</h3>
+                    <p>We partner with industry-leading manufacturers to deliver the highest quality audio-visual solutions:</p>
+                    <ul>
+                        <li><strong>Crestron</strong> - Control systems and automation</li>
+                        <li><strong>Shure</strong> - Professional audio solutions</li>
+                        <li><strong>Bose</strong> - Premium sound systems</li>
+                        <li><strong>Sony</strong> - Professional displays and cameras</li>
+                        <li><strong>Yealink</strong> - Video conferencing solutions</li>
+                    </ul>
+                    
+                    <div style="text-align: center; margin-top: 40px;">
+                        <a href="#" class="btn btn-accent open-solution-form" data-service="Audio-Visual Solutions">Get a Custom AV Solution</a>
+                        <a href="#" class="btn nav-link" data-page="home" style="margin-left: 15px;">Back to Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ICT Solutions Detail Page -->
+    <div id="ict-solutions-page" class="page-content">
+        <section class="service-detail-hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;">
+            <div class="container">
+                <h1>ICT & Networking Solutions</h1>
+                <p>Building the digital backbone for modern enterprises with robust and secure network infrastructure</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="service-detail-content">
+                    <h2>Comprehensive ICT Infrastructure</h2>
+                    <p>Our ICT and networking solutions provide the foundation for digital transformation, enabling organizations to operate efficiently, securely, and at scale. We design and implement network infrastructures that support current needs while anticipating future growth.</p>
+                    
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <h4><i class="fas fa-network-wired"></i> Structured Cabling Systems</h4>
+                            <p>Reliable and organized cabling infrastructure that forms the physical backbone of your network.</p>
+                            <ul>
+                                <li>Fiber optic and copper cabling</li>
+                                <li>Data center cabling solutions</li>
+                                <li>Cable management and labeling</li>
+                                <li>Future-proof infrastructure design</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <h4><i class="fas fa-wifi"></i> Wireless Network Solutions</h4>
+                            <p>Seamless and secure wireless connectivity that supports mobility and productivity across your organization.</p>
+                            <ul>
+                                <li>Enterprise-grade Wi-Fi systems</li>
+                                <li>Mesh networking solutions</li>
+                                <li>Guest network management</li>
+                                <li>Wireless site surveys and optimization</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <h4><i class="fas fa-phone-alt"></i> IP Telephony & VoIP</h4>
+                            <p>Modern communication systems that reduce costs while enhancing collaboration and customer service.</p>
+                            <ul>
+                                <li>IP PBX systems</li>
+                                <li>SIP trunking solutions</li>
+                                <li>Unified communications platforms</li>
+                                <li>Mobile integration</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <h4><i class="fas fa-shield-alt"></i> Network Security</h4>
+                            <p>Comprehensive security solutions that protect your network infrastructure and data from internal and external threats.</p>
+                            <ul>
+                                <li>Firewall implementation</li>
+                                <li>Intrusion prevention systems</li>
+                                <li>Network access control</li>
+                                <li>Security monitoring and management</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3>Our ICT Technology Partners</h3>
+                    <p>We work with leading technology providers to deliver reliable and scalable ICT solutions:</p>
+                    <ul>
+                        <li><strong>Cisco</strong> - Networking and security solutions</li>
+                        <li><strong>Juniper Networks</strong> - High-performance networking</li>
+                        <li><strong>Aruba</strong> - Wireless and mobility solutions</li>
+                        <li><strong>Fortinet</strong> - Network security platforms</li>
+                        <li><strong>Ruckus</strong> - Smart Wi-Fi solutions</li>
+                    </ul>
+                    
+                    <div style="text-align: center; margin-top: 40px;">
+                        <a href="#" class="btn btn-accent open-solution-form" data-service="ICT & Networking">Get a Custom ICT Solution</a>
+                        <a href="#" class="btn nav-link" data-page="home" style="margin-left: 15px;">Back to Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- GRMS Solutions Detail Page -->
+    <div id="grms-solutions-page" class="page-content">
+        <section class="service-detail-hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.orbitatech.com/uploads/allimg/200706/1-200F6163502507.jpg') no-repeat center center/cover;">
+            <div class="container">
+                <h1>GRMS & Security Solutions</h1>
+                <p>Intelligent room management and comprehensive security systems for enhanced guest experiences and facility protection</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="service-detail-content">
+                    <h2>Integrated Guest Room Management & Security</h2>
+                    <p>Our GRMS and security solutions provide hospitality and corporate environments with intelligent control over room functions while ensuring the safety and security of occupants and assets. These integrated systems enhance operational efficiency while delivering superior user experiences.</p>
+                    
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <h4><i class="fas fa-door-open"></i> Guest Room Management Systems</h4>
+                            <p>Intelligent systems that automate room functions and enhance guest comfort while optimizing energy usage.</p>
+                            <ul>
+                                <li>Automated lighting and climate control</li>
+                                <li>Integrated entertainment systems</li>
+                                <li>Energy management and optimization</li>
+                                <li>Maintenance request automation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <h4><i class="fas fa-shield-alt"></i> Integrated Security Solutions</h4>
+                            <p>Comprehensive security systems that protect facilities, assets, and people through advanced technology integration.</p>
+                            <ul>
+                                <li>Access control systems</li>
+                                <li>Intrusion detection</li>
+                                <li>Alarm monitoring and management</li>
+                                <li>Emergency response integration</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <h4><i class="fas fa-video"></i> Access Control & CCTV</h4>
+                            <p>Advanced surveillance and access management solutions that provide security and operational insights.</p>
+                            <ul>
+                                <li>IP-based CCTV systems</li>
+                                <li>Card and biometric access control</li>
+                                <li>Video analytics and intelligence</li>
+                                <li>Remote monitoring capabilities</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <h4><i class="fas fa-bolt"></i> Energy Management Systems</h4>
+                            <p>Smart systems that optimize energy consumption while maintaining comfort and operational requirements.</p>
+                            <ul>
+                                <li>Automated power management</li>
+                                <li>Occupancy-based controls</li>
+                                <li>Energy usage monitoring and reporting</li>
+                                <li>Sustainability compliance</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3>Our GRMS & Security Technology Partners</h3>
+                    <p>We collaborate with industry leaders to deliver reliable and innovative GRMS and security solutions:</p>
+                    <ul>
+                        <li><strong>INNCOM</strong> - Guest room management systems</li>
+                        <li><strong>Honeywell</strong> - Building management and security</li>
+                        <li><strong>Bosch</strong> - Security and communication systems</li>
+                        <li><strong>Axis Communications</strong> - Network video solutions</li>
+                        <li><strong>Gallagher</strong> - Access control systems</li>
+                    </ul>
+                    
+                    <div style="text-align: center; margin-top: 40px;">
+                        <a href="#" class="btn btn-accent open-solution-form" data-service="GRMS & Security">Get a Custom Security Solution</a>
+                        <a href="#" class="btn nav-link" data-page="home" style="margin-left: 15px;">Back to Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Consultation Page Content (unchanged) -->
+    <div id="consultation-page" class="page-content">
+        <!-- Content remains the same as in the previous version -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>VisualTech Solutions</h3>
+                    <p>Innovation. Integration. Insight.</p>
+                    <p>Providing comprehensive AV, ICT and ELV solutions for businesses and smart environments.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="consultation">Consultation</a></li>
+                        <li><a href="#services" class="nav-link" data-page="home">Services</a></li>
+                        <li><a href="#solutions" class="nav-link" data-page="home">Solutions</a></li>
+                        <li><a href="#elv" class="nav-link" data-page="home">ELV Systems</a></li>
+                        <li><a href="#about" class="nav-link" data-page="home">About Us</a></li>
+                        <li><a href="#contact" class="nav-link" data-page="home">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="av-solutions">Audio-Visual Solutions</a></li>
+                        <li><a href="#" class="nav-link" data-page="ict-solutions">ICT & Networking</a></li>
+                        <li><a href="#" class="nav-link" data-page="grms-solutions">GRMS & Security</a></li>
+                        <li><a href="#">ELV Systems</a></li>
+                        <li><a href="#" class="nav-link" data-page="consultation">Consultation & Design</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Kampala, Uganda Buziga</p>
+                    <p><i class="fas fa-phone"></i> +256 772 494680</p>
+                    <p><i class="fas fa-phone"></i> +256 752 494680</p>
+                    <p><i class="fas fa-envelope"></i> sti_voh@yahoo.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 VisualTech Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page-content');
+            
+            // Function to switch pages
+            function switchPage(pageId) {
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show selected page
+                document.getElementById(pageId + '-page').classList.add('active');
+                
+                // Update active nav link
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-page') === pageId) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+            
+            // Add click event to nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    switchPage(pageId);
+                });
+            });
+            
+            // Mobile Menu Toggle
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav');
+            
+            menuBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                menuBtn.querySelector('i').classList.toggle('fa-bars');
+                menuBtn.querySelector('i').classList.toggle('fa-times');
+            });
+            
+            // Close menu when clicking on a link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                    menuBtn.querySelector('i').classList.add('fa-bars');
+                    menuBtn.querySelector('i').classList.remove('fa-times');
+                });
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Contact form submission
+            document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+
+            // Consultation form submission
+            document.getElementById('consultationForm')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your consultation request! We will contact you within 24 hours to discuss your project.');
+                this.reset();
+            });
+
+            // Custom Solution Form functionality
+            const solutionFormModal = document.getElementById('solutionFormModal');
+            const closeModalBtn = document.getElementById('closeModal');
+            const openSolutionFormBtns = document.querySelectorAll('.open-solution-form');
+            const modalServiceType = document.getElementById('modalServiceType');
+            const serviceTypeSelect = document.getElementById('serviceType');
+            const customSolutionForm = document.getElementById('customSolutionForm');
+
+            // Open modal when "Get a Custom Solution" is clicked
+            openSolutionFormBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const service = this.getAttribute('data-service');
+                    modalServiceType.textContent = service;
+                    
+                    // Set the service type in the form
+                    if (service === 'Audio-Visual Solutions') {
+                        serviceTypeSelect.value = 'av';
+                    } else if (service === 'ICT & Networking') {
+                        serviceTypeSelect.value = 'ict';
+                    } else if (service === 'GRMS & Security') {
+                        serviceTypeSelect.value = 'grms';
+                    }
+                    
+                    solutionFormModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close modal
+            closeModalBtn.addEventListener('click', function() {
+                solutionFormModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Close modal when clicking outside
+            solutionFormModal.addEventListener('click', function(e) {
+                if (e.target === solutionFormModal) {
+                    solutionFormModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Custom Solution Form submission
+            customSolutionForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your custom solution request! Our team will review your requirements and contact you within 24 hours to discuss your project.');
+                this.reset();
+                solutionFormModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Add interactive effects to automation items
+            document.querySelectorAll('.automation-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.background = 'rgba(52, 152, 219, 0.4)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.background = 'rgba(52, 152, 219, 0.2)';
+                });
+            });
+
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Scroll to top button
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.add('active');
+                } else {
+                    scrollToTopBtn.classList.remove('active');
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Loading screen
+            const loader = document.getElementById('loader');
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loader.classList.add('hidden');
+                }, 1000);
+            });
+
+            // Form input focus effects
+            const formInputs = document.querySelectorAll('.form-group input, .form-group textarea, .form-group select');
+            formInputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.classList.add('focused');
+                });
+                
+                input.addEventListener('blur', function() {
+                    if (this.value === '') {
+                        this.parentElement.classList.remove('focused');
+                    }
+                });
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            const animateElements = document.querySelectorAll('.service-card, .service-item, .benefit-item, .elv-card, .process-step');
+            animateElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
