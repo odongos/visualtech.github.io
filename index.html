@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Access Instructions</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.4;
+                color: #000;
+                background: #fff;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+            
+            .no-print {
+                display: none;
+            }
+            
+            a {
+                color: #000;
+                text-decoration: underline;
+            }
+            
+            .header, .footer {
+                text-align: center;
+                margin: 20px 0;
+            }
+            
+            .instructions {
+                margin: 20px 0;
+            }
+            
+            .step {
+                margin-bottom: 15px;
+                padding-left: 20px;
+            }
+            
+            .step-number {
+                font-weight: bold;
+            }
+            
+            .troubleshooting {
+                border: 1px solid #000;
+                padding: 15px;
+                margin: 20px 0;
+            }
+        }
+        
+        /* Screen styling */
+        @media screen {
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                background: #f5f5f5;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            
+            .print-button {
+                background: #4a86e8;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+            
+            .print-button:hover {
+                background: #3a76d8;
+            }
+            
+            .instructions {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            
+            .step {
+                margin-bottom: 15px;
+                padding-left: 20px;
+            }
+            
+            .step-number {
+                font-weight: bold;
+                color: #4a86e8;
+            }
+            
+            .troubleshooting {
+                border-left: 4px solid #e74c3c;
+                background: #f9f9f9;
+                padding: 15px;
+                margin: 20px 0;
+            }
+            
+            .header {
+                text-align: center;
+                border-bottom: 2px solid #4a86e8;
+                padding-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <button class="print-button" onclick="window.print()">Print Instructions</button>
+    </div>
+    
+    <div class="header">
+        <h1>Internet Access Instructions</h1>
+        <p>Follow these steps to connect to the internet</p>
+    </div>
+    
+    <div class="instructions">
+        <h2>Wi-Fi Connection Setup</h2>
+        
+        <div class="step">
+            <span class="step-number">1.</span> Locate the Wi-Fi icon in the system tray (bottom-right corner on Windows, top-right corner on Mac).
+        </div>
+        
+        <div class="step">
+            <span class="step-number">2.</span> Click on the Wi-Fi icon to view available networks.
+        </div>
+        
+        <div class="step">
+            <span class="step-number">3.</span> Select the network named: <strong>[Your Network Name]</strong>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">4.</span> When prompted, enter the password: <strong>[Your Password]</strong>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">5.</span> Click "Connect" and wait for the connection to establish.
+        </div>
+        
+        <div class="step">
+            <span class="step-number">6.</span> Once connected, you should see "Connected" next to the network name.
+        </div>
+        
+        <div class="step">
+            <span class="step-number">7.</span> Open a web browser to test your connection.
+        </div>
+    </div>
+    
+    <div class="troubleshooting">
+        <h2>Troubleshooting Tips</h2>
+        
+        <div class="step">
+            <span class="step-number">•</span> If you can't see the network, make sure Wi-Fi is enabled on your device.
+        </div>
+        
+        <div class="step">
+            <span class="step-number">•</span> If the password doesn't work, check for correct capitalization and special characters.
+        </div>
+        
+        <div class="step">
+            <span class="step-number">•</span> Try moving closer to the router if the signal is weak.
+        </div>
+        
+        <div class="step">
+            <span class="step-number">•</span> Restart your device if connection problems persist.
+        </div>
+        
+        <div class="step">
+            <span class="step-number">•</span> Contact IT support at: <strong>[Support Phone/Email]</strong>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="instructions">
+        <h2>Ethernet Connection Setup</h2>
+        
+        <div class="step">
+            <span class="step-number">1.</span> Connect one end of the Ethernet cable to your computer.
+        </div>
+        
+        <div class="step">
+            <span class="step-number">2.</span> Connect the other end to an available Ethernet port on the wall or router.
+        </div>
+        
+        <div class="step">
+            <span class="step-number">3.</span> Wait for the connection to be established (usually indicated by a light on the Ethernet port).
+        </div>
+        
+        <div class="step">
+            <span class="step-number">4.</span> Open a web browser to test your connection.
+        </div>
+    </div>
+    
+    <div class="instructions">
+        <h2>Important Notes</h2>
+        
+        <div class="step">
+            <span class="step-number">•</span> Do not share the Wi-Fi password with unauthorized users.
+        </div>
+        
+        <div class="step">
+            <span class="step-number">•</span> For security reasons, the password may be changed periodically.
+        </div>
+        
+        <div class="step">
+            <span class="step-number">•</span> Report any suspicious network activity immediately.
+        </div>
+        
+        <div class="step">
+            <span class="step-number">•</span> These instructions are for [Location/Building Name] only.
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>For additional assistance, contact: [IT Department Contact Information]</p>
+        <p>Document version: 1.0 | Last updated: [Date]</p>
+    </div>
+</body>
+</html>
